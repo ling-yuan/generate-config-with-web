@@ -2,6 +2,7 @@
 name = "generate-config-with-web"
 version = "0.1.0"
 description = ""
+authors = ["baishi <baishi@572268633@qq.com>"]
 license = "BSD3"
 readme = "README.md"
 
@@ -13,8 +14,3 @@ flask = "^3.0.3"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[[tool.poetry.source]]
-name = "mirrors"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
-priority = "default"
