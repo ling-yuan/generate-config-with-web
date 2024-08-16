@@ -1,0 +1,47 @@
+<!-- 导入css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/request.css') }}" />
+
+<table>
+    <tr>
+        <td>
+            请求方式（type）
+            <!-- 信息按钮，悬停显示提示信息 -->
+            <img title="api: 接口请求&#10;browser: 浏览器请求" src="{{ url_for('static', filename='pic/info.png') }}" width="8%"
+                height="8%" style="vertical-align: middle;" />
+        </td>
+        <td>
+            <!-- 下拉菜单 -->
+            <select id="type">
+                <option value="api">api</option>
+                <option value="browser">browser</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            请求链接（url）
+        </td>
+        <td>
+            <input id="url" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            请求方法（method）
+        </td>
+        <td>
+            <select id="method">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            请求次数 （iteration_times）
+        </td>
+        <td>
+            <input id="iteration_times" type="number" />
+        </td>
+    </tr>
+</table>

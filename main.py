@@ -1,15 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask
+from src.router import router
 
 app = Flask(__name__)
 app.secret_key = "secret_key"
 
-# 设定模板文件夹
-app.template_folder = "./src/template"
+app.template_folder = "src/templates"
+app.static_folder = "src/static"
 
-
-@app.route("/")
-def index():
-    return render_template("index.html")
+app.register_blueprint(router, url_prefix="/")
 
 
 if __name__ == "__main__":
