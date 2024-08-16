@@ -1,5 +1,28 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* tr下的第一个td占30%的宽 */
+tr td:first-child {
+    width: 30%;
+}
+
 td {
     /* 上下居中 */
     vertical-align: middle;
+}
 
+tr td * {
+    vertical-align: middle;
+}
+
+tr td img {
+    /* 最大 */
+    max-width: 15px;
+    max-height: 15px;
+    /* 最小 */
+    min-width: 10px;
+    min-height: 10px;
+    vertical-align: middle;
 }

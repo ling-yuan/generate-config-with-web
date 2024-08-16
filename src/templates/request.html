@@ -4,10 +4,10 @@
 <table>
     <tr>
         <td>
-            请求方式（type）
+            <span title="type">请求方式</span>
             <!-- 信息按钮，悬停显示提示信息 -->
-            <img title="api: 接口请求&#10;browser: 浏览器请求" src="{{ url_for('static', filename='pic/info.png') }}" width="8%"
-                height="8%" style="vertical-align: middle;" />
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                title="api: 接口请求&#10;browser: 浏览器请求" />
         </td>
         <td>
             <!-- 下拉菜单 -->
@@ -19,7 +19,9 @@
     </tr>
     <tr>
         <td>
-            请求链接（url）
+            <span title="url">请求链接</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                title="填写对应阶段的链接，可以使用可变参数进行填充&#10;此设置会被上个阶段中的next_url字段覆盖" />
         </td>
         <td>
             <input id="url" type="text" />
@@ -27,7 +29,9 @@
     </tr>
     <tr>
         <td>
-            请求方法（method）
+            <span title="method">请求方法</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                title="GET: 获取数据&#10;POST: 提交数据" />
         </td>
         <td>
             <select id="method">
@@ -38,10 +42,23 @@
     </tr>
     <tr>
         <td>
-            请求次数 （iteration_times）
+            <span title="iteration_times">请求次数</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                style="vertical-align: middle;"
+                title="填写对应阶段的请求次数，此设置会影响该阶段链接和携带数据中的可变参数&#10;此设置会被上个阶段中的next_iteration_times字段覆盖" />
         </td>
         <td>
             <input id="iteration_times" type="number" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span title="iteration_times">请求代理</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                style="vertical-align: middle;" title="填写对应阶段的请求代理，此设置会影响api方式获取响应" />
+        </td>
+        <td>
+            <input id="proxy" type="text" />
         </td>
     </tr>
 </table>
