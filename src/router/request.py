@@ -1,6 +1,14 @@
 from flask import Blueprint, render_template, render_template_string
 
 
+def get_directory(data={}):
+    """
+    传入data, 渲染目录页面
+    """
+    data = data if isinstance(data, dict) and data else {}
+    return render_template("directory.html", **data)
+
+
 def get_request(data={}):
     """
     传入data, 渲染请求页面

@@ -5,7 +5,7 @@ table {
 
 /* tr下的第一个td占30%的宽 */
 tr td:first-child {
-    width: 30%;
+    width: 35%;
 }
 
 td {

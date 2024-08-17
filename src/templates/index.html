@@ -9,7 +9,23 @@
     </head>
 
     <body>
-        {{html|safe}}
+        <script src="{{url_for('static', filename='js/index.js')}}"></script>
+        <div class="header">
+            <div class="icon">
+                <div class="item"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="directory">
+                {{directory|safe}}
+            </div>
+            <div class="request">
+                {{request|safe}}
+            </div>
+            <div class="response">
+                {{response|safe}}
+            </div>
+        </div>
     </body>
 
 </html>
