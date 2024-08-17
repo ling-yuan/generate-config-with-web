@@ -61,4 +61,57 @@
             <input id="proxy" type="text" />
         </td>
     </tr>
+    <tr>
+        <td>
+            <span title="headers">请求头</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                style="vertical-align: middle;" title="对应阶段的请求头" />
+        </td>
+        <td>
+            <textarea id="headers" rows="4" cols="50"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span title="query_params">query参数</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                style="vertical-align: middle;" title="对应阶段的query参数，请输入json格式" />
+        </td>
+        <td>
+            <textarea id="query_params" rows="4" cols="50"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span title="json_params">json参数</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                style="vertical-align: middle;" title="对应阶段的json参数，请输入json格式" />
+        </td>
+        <td>
+            <textarea id="json_params" rows="4" cols="50"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span title="form_params">form参数</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                style="vertical-align: middle;" title="对应阶段的form参数，请输入json格式" />
+        </td>
+        <td>
+            <textarea id="form_params" rows="4" cols="50"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span title="dont_filter">链接去重</span>
+            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+                style="vertical-align: middle;" title="请求链接是否去重" />
+        </td>
+        <td>
+            <select id="dont_filter">
+                <option value="True">不去重</option>
+                <option value="False">去重</option>
+            </select>
+        </td>
+    </tr>
 </table>
