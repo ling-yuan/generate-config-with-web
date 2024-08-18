@@ -15,7 +15,7 @@
     vertical-align: middle;
 }
 
-.request-table .request-icon {
+.request-icon {
     /* 默认 */
     width: 8%;
     height: 8%;
@@ -28,7 +28,46 @@
     vertical-align: middle;
 }
 
-.request-table .request-textarea {
+.input-data {
+    /* 无边框 */
+    border: none;
+    /* 下边框 */
+    border-bottom: 1px solid #000000;
+    /* 圆角 */
+    border-radius: 3px;
+    /* 右下阴影 */
+    box-shadow: 2px 1px 2px #888888;
+    /* 字体大小 */
+    font-size: 15px;
+}
+
+.input-data:focus {
+    /* 聚焦时无边框 */
+    outline: none;
+}
+
+.request-textarea {
     /* 不允许更改大小 */
     resize: none;
+}
+
+.request-select {
+    /* 背景色 */
+    background-color: #ffffff;
+    /* 鼠标悬停时样式 */
+    cursor: pointer;
+    /* 宽度 */
+    width: 30%;
+}
+
+.request-input {
+    width: 70%;
+}
+
+.request-input-number {
+    width: 30%;
+}
+
+.request-input-number:focus {
+    outline: none;
 }
