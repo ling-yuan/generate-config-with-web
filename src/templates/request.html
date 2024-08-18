@@ -1,17 +1,17 @@
 <!-- 导入css -->
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/request.css') }}" />
 
-<table>
+<table class="request-table">
     <tr>
         <td>
             <span title="type">请求方式</span>
             <!-- 信息按钮，悬停显示提示信息 -->
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
                 title="api: 接口请求&#10;browser: 浏览器请求" />
         </td>
         <td>
             <!-- 下拉菜单 -->
-            <select id="type">
+            <select class="request-select" id="type" aria-label="type">
                 <option value="api">api</option>
                 <option value="browser">browser</option>
             </select>
@@ -20,21 +20,21 @@
     <tr>
         <td>
             <span title="url">请求链接</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
                 title="填写对应阶段的链接，可以使用可变参数进行填充&#10;此设置会被上个阶段中的next_url字段覆盖" />
         </td>
         <td>
-            <input id="url" type="text" />
+            <input class="request-input" id="url" type="text" aria-label="url" />
         </td>
     </tr>
     <tr>
         <td>
             <span title="method">请求方法</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
                 title="GET: 获取数据&#10;POST: 提交数据" />
         </td>
         <td>
-            <select id="method">
+            <select class="request-select" id="method" aria-label="method">
                 <option value="GET">GET</option>
                 <option value="POST">POST</option>
             </select>
@@ -43,72 +43,71 @@
     <tr>
         <td>
             <span title="iteration_times">请求次数</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
                 style="vertical-align: middle;"
                 title="填写对应阶段的请求次数，此设置会影响该阶段链接和携带数据中的可变参数&#10;此设置会被上个阶段中的next_iteration_times字段覆盖" />
         </td>
         <td>
-            <input id="iteration_times" type="number" />
+            <input class="request-input" id="iteration_times" type="number" aria-label="iteration_times" />
         </td>
     </tr>
     <tr>
         <td>
-            <span title="iteration_times">请求代理</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
-                style="vertical-align: middle;" title="填写对应阶段的请求代理，此设置会影响api方式获取响应" />
+            <span title="proxy">请求代理</span>
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="填写对应阶段的请求代理，此设置会影响api方式获取响应" />
         </td>
         <td>
-            <input id="proxy" type="text" />
+            <input class="request-input" id="proxy" type="text" aria-label="proxy" />
         </td>
     </tr>
     <tr>
         <td>
             <span title="headers">请求头</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
-                style="vertical-align: middle;" title="对应阶段的请求头" />
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}" title="对应阶段的请求头" />
         </td>
         <td>
-            <textarea id="headers" rows="4" cols="50"></textarea>
+            <textarea class="request-textarea" id="headers" rows="4" cols="50" aria-label="headers"></textarea>
         </td>
     </tr>
     <tr>
         <td>
             <span title="query_params">query参数</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
-                style="vertical-align: middle;" title="对应阶段的query参数，请输入json格式" />
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="对应阶段的query参数，请输入json格式" />
         </td>
         <td>
-            <textarea id="query_params" rows="4" cols="50"></textarea>
+            <textarea class="request-textarea" id="query_params" rows="4" cols="50"
+                aria-label="query_params"></textarea>
         </td>
     </tr>
     <tr>
         <td>
             <span title="json_params">json参数</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
-                style="vertical-align: middle;" title="对应阶段的json参数，请输入json格式" />
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="对应阶段的json参数，请输入json格式" />
         </td>
         <td>
-            <textarea id="json_params" rows="4" cols="50"></textarea>
+            <textarea class="request-textarea" id="json_params" rows="4" cols="50" aria-label="json_params"></textarea>
         </td>
     </tr>
     <tr>
         <td>
             <span title="form_params">form参数</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
-                style="vertical-align: middle;" title="对应阶段的form参数，请输入json格式" />
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="对应阶段的form参数，请输入json格式" />
         </td>
         <td>
-            <textarea id="form_params" rows="4" cols="50"></textarea>
+            <textarea class="request-textarea" id="form_params" rows="4" cols="50" aria-label="form_params"></textarea>
         </td>
     </tr>
     <tr>
         <td>
             <span title="dont_filter">链接去重</span>
-            <img src="{{ url_for('static', filename='pic/info.png') }}" width="8%" height="8%"
-                style="vertical-align: middle;" title="请求链接是否去重" />
+            <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}" title="请求链接是否去重" />
         </td>
         <td>
-            <select id="dont_filter">
+            <select class="request-select" id="dont_filter" aria-label="dont_filter">
                 <option value="True">不去重</option>
                 <option value="False">去重</option>
             </select>

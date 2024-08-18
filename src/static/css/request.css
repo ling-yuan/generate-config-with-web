@@ -1,23 +1,24 @@
-table {
+.request-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0px 8px;
 }
 
 /* tr下的第一个td占30%的宽 */
-tr td:first-child {
+.request-table tr td:first-child {
     width: 35%;
 }
 
-td {
+.request-table td,
+.request-table td * {
     /* 上下居中 */
     vertical-align: middle;
 }
 
-tr td * {
-    vertical-align: middle;
-}
-
-tr td img {
+.request-table .request-icon {
+    /* 默认 */
+    width: 8%;
+    height: 8%;
     /* 最大 */
     max-width: 15px;
     max-height: 15px;
@@ -25,4 +26,9 @@ tr td img {
     min-width: 10px;
     min-height: 10px;
     vertical-align: middle;
+}
+
+.request-table .request-textarea {
+    /* 不允许更改大小 */
+    resize: none;
 }
