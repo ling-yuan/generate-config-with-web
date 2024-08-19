@@ -55,7 +55,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
+    /* 不显示滚动条 */
+    width: 0vh;
 }
 
 .container div {
@@ -63,17 +64,21 @@ body {
     /* 边框: 虚线 */
     border: 1px dashed #000000;
     /* 内边距 */
-    padding: 10px;
+    padding: 3vh;
 }
 
 .container .directory {
     width: 15%;
 }
 
-.container .request {
+/* .container .request {
     width: 34%;
 }
 
 .container .response {
     width: 51%;
+} */
+
+.container .request-response {
+    width: 85%;
 }

@@ -1,12 +1,18 @@
 .request-table {
+    /* 宽度等于父容器 */
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0px 8px;
+    border-spacing: 1vh 1vh;
 }
 
 /* tr下的第一个td占30%的宽 */
-.request-table tr td:first-child {
-    width: 35%;
+.request-title {
+    width: 25%;
+    font-size: 2vh;
+}
+
+.request-content {
+    width: 75%;
 }
 
 .request-table td,
@@ -38,7 +44,7 @@
     /* 右下阴影 */
     box-shadow: 2px 1px 2px #888888;
     /* 字体大小 */
-    font-size: 15px;
+    font-size: 2.2vh;
 }
 
 .input-data:focus {
@@ -49,7 +55,7 @@
 .request-textarea {
     /* 不允许更改大小 */
     resize: none;
-    /* width: 95%; */
+    width: 80%;
 }
 
 .request-select {
@@ -62,7 +68,7 @@
 }
 
 .request-input {
-    width: 70%;
+    width: 60%;
 }
 
 .request-input-number {
