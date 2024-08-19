@@ -49,6 +49,7 @@
 .request-textarea {
     /* 不允许更改大小 */
     resize: none;
+    /* width: 95%; */
 }
 
 .request-select {
