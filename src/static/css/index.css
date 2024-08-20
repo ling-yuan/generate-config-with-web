@@ -52,6 +52,7 @@ body {
 .container {
     height: 92vh;
     display: flex;
+    margin: 0.5vh;
 }
 
 ::-webkit-scrollbar {
