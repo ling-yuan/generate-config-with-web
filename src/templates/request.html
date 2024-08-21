@@ -3,7 +3,7 @@
 
 <table class="request-table">
     <tr>
-        <td class="request-title">`
+        <td class="request-title">
             <span title="type">请求方式</span>
             <!-- 信息按钮，悬停显示提示信息 -->
             <img class="request-icon" src="{{ url_for('static', filename='pic/info.png') }}"
@@ -120,3 +120,7 @@
         </td>
     </tr>
 </table>
+
+<!-- 导入js -->
+<script src="{{url_for('static', filename='js/tools.js')}}"></script>
+<script src="{{ url_for('static', filename='js/request.js') }}"></script>
