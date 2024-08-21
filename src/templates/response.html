@@ -1,0 +1,59 @@
+<!-- 导入css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/response.css') }}" />
+<table class="response-table">
+    <tr>
+        <td>
+            <span title="type">响应类型</span>
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="json: json格式&#10; html: html格式 &#10; browser: 浏览器访问界面获取响应"/>
+        </td>
+        <td>
+            <textarea class="input-data response-textarea" id="type" rows="2"cols="40"
+            aria-label="type"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <soan title="before_parse">解析前需要执行的函数列表</soan>
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="解析前需要执行的函数列表" />
+        </td>
+        <td>
+            <textarea class="input-data response-textarea" id="before_parse" rows="10"cols="40"
+            aria-label="before_parse"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span title="fields">解析字段列表</span>
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="解析字段列表" />
+        </td>
+        <td>
+            <textarea class="input-data response-textarea" id="fields" rows="4" cols="40"
+                aria-label="fields"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span class="save_fields">保存字段列表</span>
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+            title="保存字段列表" />
+        </td>
+        <td>
+            <textarea class="input-data response-textarea" id="save_fields" rows="4" cols="40"
+                aria-label="save_fields"></textarea>
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <span class="extra_params">额外配置</span>
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+            title="额外配置" />
+        </td>
+        <td>
+            <textarea class="input-data response-textarea" id="extra_params" rows="4" cols="40"
+            aria-label="extra_params"></textarea>
+        </td>
+    </tr>
+</table>

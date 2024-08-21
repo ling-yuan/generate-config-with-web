@@ -1,0 +1,73 @@
+.response-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px 8px;
+}
+
+/* tr下的第一个td占30%的宽 */
+.response-table tr td:first-child {
+    width: 35%;
+}
+
+.response-table td,
+.response-table td * {
+    /* 上下居中 */
+    vertical-align: middle;
+}
+
+.response-icon {
+    /* 默认 */
+    width: 8%;
+    height: 8%;
+    /* 最大 */
+    max-width: 15px;
+    max-height: 15px;
+    /* 最小 */
+    min-width: 10px;
+    min-height: 10px;
+    vertical-align: middle;
+}
+
+.input-data {
+    /* 无边框 */
+    border: none;
+    /* 下边框 */
+    border-bottom: 1px solid #000000;
+    /* 圆角 */
+    border-radius: 3px;
+    /* 右下阴影 */
+    box-shadow: 2px 1px 2px #888888;
+    /* 字体大小 */
+    font-size: 15px;
+}
+
+.input-data:focus {
+    /* 聚焦时无边框 */
+    outline: none;
+}
+
+.response-textarea {
+    /* 不允许更改大小 */
+    resize: none;
+}
+
+.response-select {
+    /* 背景色 */
+    background-color: #ffffff;
+    /* 鼠标悬停时样式 */
+    cursor: pointer;
+    /* 宽度 */
+    width: 30%;
+}
+
+.response-input {
+    width: 70%;
+}
+
+.response-input-number {
+    width: 30%;
+}
+
+.response-input-number:focus {
+    outline: none;
+}
