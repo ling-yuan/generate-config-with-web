@@ -25,3 +25,22 @@ function getValue(id) {
 function setValue(id, value) {
     document.getElementById(id).value = value;
 }
+
+/**
+ * 复制文本到剪贴板
+ * @param str
+ * @returns {string}
+ * */
+function copyToClipboard(str) {
+    var textarea = document.createElement('textarea');
+    textarea.value = str;
+    textarea.style.position = 'fixed';
+    textarea.style.top = 0;
+    textarea.style.left = 0;
+    textarea.style.width = '0.01em';
+    textarea.style.height = '0.01em';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+}

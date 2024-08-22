@@ -9,6 +9,7 @@
     </head>
 
     <body>
+        <script src="{{url_for('static', filename='js/tools.js')}}"></script>
         <script src="{{url_for('static', filename='js/index.js')}}"></script>
         <div class="header">
             <div class="icon">
@@ -16,10 +17,10 @@
             </div>
         </div>
         <div class="container">
-            <div class="directory">
+            <div class="directory" id="directory">
                 {{directory|safe}}
             </div>
-            <div class="request-response">
+            <div class="request-response" id="request-response">
                 {{request|safe}}
                 <br />
                 <hr />

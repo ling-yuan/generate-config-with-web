@@ -59,8 +59,6 @@ function getRequestParams() {
  * @param dict
  * */
 function setRequestParams(dict) {
-
-
     for (let key in dict) {
         let value = dict[key];
         // 如果为字符串
