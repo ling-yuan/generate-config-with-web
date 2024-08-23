@@ -60,7 +60,7 @@ body {
     width: 0vh;
 }
 
-.container div {
+.container>div {
     overflow-y: auto;
     /* 边框: 虚线 */
     border: 1px dashed #000000;

@@ -1,0 +1,127 @@
+.response-table {
+    /* 宽度等于父容器 */
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 1vh 1vh;
+}
+
+/* tr下的第一个td占30%的宽 */
+.response-title {
+    width: 22%;
+    font-size: small;
+    padding-left: 3%;
+}
+
+.response-content {
+    width: 75%;
+}
+
+.response-table td,
+.response-table td * {
+    /* 上下居中 */
+    vertical-align: middle;
+}
+
+.response-icon {
+    /* 默认 */
+    width: 8%;
+    height: 8%;
+    /* 最大 */
+    max-width: 15px;
+    max-height: 15px;
+    /* 最小 */
+    min-width: 10px;
+    min-height: 10px;
+    vertical-align: middle;
+}
+
+.response-icon-add {
+    cursor: pointer;
+    width: 4vh;
+    height: 4vh;
+}
+
+.input-data {
+    /* 无边框 */
+    border: none;
+    /* 下边框 */
+    border-bottom: 1px solid #000000;
+    /* 圆角 */
+    border-radius: 3px;
+    /* 右下阴影 */
+    box-shadow: 2px 1px 2px #888888;
+    /* 字体大小 */
+    font-size: small;
+}
+
+.input-data:focus {
+    /* 聚焦时无边框 */
+    outline: none;
+}
+
+.response-textarea {
+    /* 不允许更改大小 */
+    resize: none;
+    padding: 0.5vh 1vh;
+}
+
+.response-select {
+    /* 背景色 */
+    background-color: #ffffff;
+    /* 鼠标悬停时样式 */
+    cursor: pointer;
+    /* 宽度 */
+    width: 30%;
+    padding: 0.5vh 1vh;
+}
+
+.response-input {
+    padding: 0.5vh 1vh;
+}
+
+.response-input-number {
+    padding: 0.5vh 1vh;
+}
+
+.response-input-number:focus {
+    outline: none;
+}
+
+.response-button-area {
+    width: 3%;
+    text-align: right;
+}
+
+.input-area {
+    width: 100%;
+    padding: 0.5vh 1vh;
+}
+
+.response-field-label {
+    font-size: smaller;
+}
+
+.response-field-input {
+    width: 10vw;
+    padding: 0.5vh 1vh;
+}
+
+.response-icon-del {
+    width: 2vh;
+    height: 2vh;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.response-save-input {
+    width: 10vh;
+    height: 3vh;
+    font-size: smaller;
+}
+
+.response-field_item {
+    /* 内边距0.5vh */
+    padding: 1vh;
+    /* 边框 */
+    border: 1px solid #cccccc7a;
+}
