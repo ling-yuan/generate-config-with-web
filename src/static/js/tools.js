@@ -44,3 +44,13 @@ function copyToClipboard(str) {
     document.execCommand('copy');
     document.body.removeChild(textarea);
 }
+
+/**
+ * 随机8位id
+ * @param {string} beforeInfo
+ */
+function randomId(beforeInfo) {
+    let tmpId = Math.random().toString(36).substr(2, 8);
+    tmpId = beforeInfo + tmpId;
+    return tmpId;
+}

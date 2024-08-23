@@ -1,0 +1,71 @@
+<!-- 导入css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/response.css') }}" />
+
+<table class="response-table">
+    <tr>
+        <td class="response-title">
+            <span title="type">响应方式</span>
+            <!-- 信息按钮，悬停显示提示信息 -->
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="json: json格式&#10;html: html格式&#10;browser: 浏览器界面" />
+        </td>
+        <td class="response-button-area">
+        </td>
+        <td class="response-content">
+            <!-- 下拉菜单 -->
+            <select class="input-data response-select" id="response-type" aria-label="type">
+                <option value="json">json</option>
+                <option value="html">html</option>
+                <option value="browser">browser</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="response-title">
+            <span title="before_process">解析前处理</span>
+            <!-- 信息按钮，悬停显示提示信息 -->
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="解析响应前处理，目前用于浏览器响应时" />
+        </td>
+        <td class="response-button-area">
+            <img class="response-icon-add" src="{{ url_for('static', filename='pic/add.png') }}" title="添加解析前处理"
+                onclick="addInputArea('before_process-list')" />
+        </td>
+        <td class="response-content">
+            <div class="input-area" id="before_process-list"></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="response-title">
+            <span title="fields">解析字段</span>
+            <!-- 信息按钮，悬停显示提示信息 -->
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="解析响应内容，获取解析字段的结果" />
+        </td>
+        <td class="response-button-area">
+            <img class="response-icon-add" src="{{ url_for('static', filename='pic/add.png') }}" title="添加解析前处理"
+                onclick="addInputArea('fields-list')" />
+        </td>
+        <td class="response-content">
+            <div class="input-area" id="fields-list"></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="response-title">
+            <span title="save_fields">保存字段</span>
+            <!-- 信息按钮，悬停显示提示信息 -->
+            <img class="response-icon" src="{{ url_for('static', filename='pic/info.png') }}"
+                title="解析后，最终需要保留的字段&#10;该设置仅在最后阶段有效" />
+        </td>
+        <td class="response-button-area">
+            <img class="response-icon-add" src="{{ url_for('static', filename='pic/add.png') }}" title="添加解析前处理"
+                onclick="addInputArea('save_fields-list')" />
+        </td>
+        <td class="response-content">
+            <div class="input-area" id="save_fields-list"></div>
+        </td>
+    </tr>
+</table>
+
+<!-- 导入js -->
+<script src="{{ url_for('static', filename='js/response.js') }}"></script>
