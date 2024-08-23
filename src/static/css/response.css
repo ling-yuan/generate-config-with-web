@@ -71,7 +71,7 @@
     /* 鼠标悬停时样式 */
     cursor: pointer;
     /* 宽度 */
-    width: 30%;
+    width: 11vw;
     padding: 0.5vh 1vh;
 }
 
@@ -99,6 +99,8 @@
 
 .response-field-label {
     font-size: smaller;
+    width: 9%;
+    display: inline-block;
 }
 
 .response-field-input {
@@ -111,12 +113,19 @@
     height: 2vh;
     cursor: pointer;
     vertical-align: middle;
+    /* 最大 */
+    max-width: 15px;
+    max-height: 15px;
+    /* 最小 */
+    min-width: 10px;
+    min-height: 10px;
 }
 
 .response-save-input {
-    width: 10vh;
+    width: 8vh;
     height: 3vh;
     font-size: smaller;
+    padding: 0vh 1vh;
 }
 
 .response-field_item {
@@ -124,4 +133,11 @@
     padding: 1vh;
     /* 边框 */
     border: 1px solid #cccccc7a;
+    /* 圆角 */
+    border-radius: 5px;
+}
+
+.response-process-list {
+    width: 100%;
+    padding: 0vh 0.5vh;
 }
