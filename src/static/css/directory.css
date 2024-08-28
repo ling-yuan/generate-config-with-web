@@ -2,9 +2,10 @@
     list-style-type: none;
     padding: 0;
 }
+
 .directory-ul>li {
+    display: flex;
     justify-content: space-between;
-    
 }
 
 .directory-ul>li:hover {
@@ -21,13 +22,17 @@
 .directory-list-right {
     text-align: right;
     vertical-align: middle;
-    
-   
 }
 
 .directory-list-right>img {
-    width: 8%;
-    height: 2%;
+    width: 1vw;
+    height: 1vw;
+    /* 最大 */
+    max-width: 20px;
+    max-height: 20px;
+    /* 最小 */
+    min-width: 10px;
+    min-height: 10px;
     object-fit: cover;
     vertical-align: middle;
 }
