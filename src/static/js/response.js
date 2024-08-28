@@ -92,3 +92,62 @@ function addAfterProcessList(id) {
 function deleteElement(id) {
     document.getElementById(id).remove();
 }
+
+/**
+ * 获取所有保存字段的值
+ * @returns {[]}
+ */
+function getSaveFields() {
+    let area = document.getElementById('save_fields-list');
+    let saveFields = [];
+    for (let i = 0; i < area.children.length; i++) {
+        let tmpSpan = area.children[i];
+        // 获取其中的input
+        let tmpInput = tmpSpan.children[0];
+        saveFields.push(tmpInput.value);
+    }
+    return saveFields;
+}
+
+/**
+ * 获取解析字段的配置
+ * @returns {[{}]}
+ */
+function getResponseFieldsConfig() {
+    let area = document.getElementById('fields-list');
+    let fields = [];
+    for (let i = 0; i < area.children.length; i++) {
+        let tmpDiv = area.children[i];
+        let tmpDict = {};
+        tmpDict['field_name'] = tmpDiv.children[id = 'field_name'].value;
+        tmpDict['field_type'] = tmpDiv.children[id = 'field_type'].value;
+        tmpDict['field_save_length'] = tmpDiv.children[id = 'field_save_length'].value;
+        tmpDict['field_value'] = tmpDiv.children[id = 'field_value'].value;
+        tmpDict['field_default'] = tmpDiv.children[id = 'field_default'].value;
+        tmpDict['field_save_method'] = tmpDiv.children[id = 'field_save_method'].value;
+        let process_list = tmpDiv.children[tmpDiv.children.length - 1];
+        let process_fields = [];
+        for (let j = 0; j < process_list.children.length; j++) {
+            let tmpProcess = process_list.children[j];
+            let tmpProcessDict = {};
+            tmpProcessDict['after_process_method'] = tmpProcess.children[id = 'after_process_method'].value;
+            tmpProcessDict['after_process_params'] = tmpProcess.children[id = 'after_process_params'].value;
+            process_fields.push(tmpProcessDict);
+        }
+        tmpDict['process_fields'] = process_fields;
+        fields.push(tmpDict);
+    }
+    return fields;
+}
+
+/**
+ * 获取界面响应的配置
+ * @returns {{}}
+ * */
+function getResponseConfig() {
+    let responseConfig = {};
+    responseConfig['response-type'] = document.getElementById('response-type').value;
+    responseConfig['save_fields'] = getSaveFields();
+    responseConfig['fields'] = getResponseFieldsConfig();
+    return responseConfig;
+}
