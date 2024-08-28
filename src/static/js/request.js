@@ -55,10 +55,32 @@ function getRequestParams() {
 }
 
 /**
+ * 设置默认界面内容
+ * */
+function setDefaultRequestParams() {
+    tmpDict = {
+        "request-type": "api",
+        "request-url": "",
+        "request-method": "GET",
+        "request-iteration_times": "1",
+        "request-proxy": "",
+        "request-dont_filter": "True",
+        "request-headers": "",
+        "request-query_params": "",
+        "request-json_params": "",
+        "request-form_params": "",
+    }
+    for (let key in tmpDict) {
+        setValue(key, tmpDict[key]);
+    }
+}
+
+/**
  * 设置请求参数
  * @param dict
  * */
 function setRequestParams(dict) {
+    setDefaultRequestParams();
     for (let key in dict) {
         let value = dict[key];
         // 如果为字符串
