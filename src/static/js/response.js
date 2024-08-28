@@ -22,7 +22,7 @@ function addInputArea(id) {
                             <select class="input-data response-select" id="field_save_length" aria-label="field_save_length">
                                 <option value="0">0</option>
                                 <option value="1">1</option>
-                            </select> &emsp;
+                            </select> &nbsp;
                             <img class="response-icon-del" src="./static/pic/del.png" onclick="deleteElement('${tmpId}')">
                             <br />
 
@@ -92,4 +92,3 @@ function addAfterProcessList(id) {
 function deleteElement(id) {
     document.getElementById(id).remove();
 }
-

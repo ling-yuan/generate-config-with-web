@@ -71,8 +71,8 @@
     /* 鼠标悬停时样式 */
     cursor: pointer;
     /* 宽度 */
-    width: 11vw;
-    padding: 0.5vh 1vh;
+    width: 10vw;
+    padding: 0.3vh 1vh;
 }
 
 .response-input {
@@ -145,6 +145,6 @@
 
 .response-process-label {
     font-size: smaller;
-    width: 5%;
+    width: 4%;
     display: inline-block;
 }
