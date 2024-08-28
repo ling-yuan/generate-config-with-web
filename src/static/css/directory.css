@@ -1,20 +1,33 @@
-  /* {
-    width: 100%;
-    background-color: #11a2bc;
-    padding: 0%;
-} */
-
-ul {
+.directory-ul {
     list-style-type: none;
     padding: 0;
 }
-
-button {
-    margin-top: 5%;
+.directory-ul>li {
+    justify-content: space-between;
+    
 }
 
-/* /悬停效果     */
-ul li:hover {
+.directory-ul>li:hover {
     background-color: #ddd;
     cursor: pointer;
+}
+
+.directory-list-left {
+    vertical-align: middle;
+    /* 左对齐 */
+    text-align: left;
+}
+
+.directory-list-right {
+    text-align: right;
+    vertical-align: middle;
+    
+   
+}
+
+.directory-list-right>img {
+    width: 8%;
+    height: 2%;
+    object-fit: cover;
+    vertical-align: middle;
 }

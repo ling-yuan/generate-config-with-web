@@ -1,9 +1,17 @@
 <link rel="stylesheet" href="{{url_for('static', filename='css/directory.css')}}">
 
-<ul id="directoryList">
-    <li id="directory0" onclick="qiehuan('directory0')">测试 0</li>
-
+<ul class="directory-ul" id="directoryList">
+    <!-- <li id="directory0" onclick="qiehuan('directory0')">测试 0</li> -->
+    <li id="directory0">
+        <span onclick="qiehuan('directory0')" class="directory-list-left">
+            初始
+        </span>
+        <span class="directory-list-right">
+            <img src="{{url_for('static', filename='pic/directoryadd.png')}}" onclick="addList('directory0')" title="点击添加" />
+            <img src="{{url_for('static', filename='pic/directoryreduce.png')}}" onclick="deleteElement('directory0')" title="点击删除" />
+        </span>
+    </li>
 </ul>
-<img id="addButton"  src="./static/pic/directory-add.png" alt="点击添加" onclick="addList()"/>
+<!-- <img id="addButton"  src="./static/pic/directory-add.png" title="点击添加" onclick="addList()"/> -->
 
 <script src="{{url_for('static', filename='js/directory.js')}}"></script>
