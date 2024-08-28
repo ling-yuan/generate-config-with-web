@@ -1,16 +1,19 @@
 // 定义的键值对的全局变量
 let nowstep = 'directory0';
 let datadict = {};
-datadict[nowstep] =
-{
-    "request": {
-        "request-type": "api",
-        "request-method": "GET",
-        "request-iteration_times": "1",
-        "request-dont_filter": "True"
-    },
-    "response": {},
+
+function initDict(key) {
+    datadict[key] = {
+        "request": {
+            "request-type": "api",
+            "request-method": "GET",
+            "request-iteration_times": "1",
+            "request-dont_filter": "True"
+        },
+        "response": {},
+    }
 }
+initDict('directory0');
 // 定义点击函数
 function qiehuan(id) {
     console.log(id);
@@ -27,22 +30,10 @@ function qiehuan(id) {
         nowstep = id;
     }
 }
-// // 添加函数
-// let tmpdata = 0;
-// function addList() {
-//     let tmpId=randomId('directory-');
-//     let List = document.getElementById("directoryList");
 
-//     let newList = document.createElement("li");
-//     newList.setAttribute("id",tmpId);
-//     newList.setAttribute("onclick","qiehuan(this.id)");
-
-//     newList.textContent = tmpdata;
-//     tmpdata++;
-//     List.appendChild(newList);
-// }
 let number = 0;
 function addList(id) {
+    // 生成阶段
     let area = document.getElementById(id);
     let tmpId = randomId('directory-');
     let temp = `<li id="${tmpId}">
@@ -55,4 +46,6 @@ function addList(id) {
                     </span>
                 </li>`;
     area.insertAdjacentHTML('afterend', temp);
+    // 初始化阶段
+    initDict(tmpId);
 }
