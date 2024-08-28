@@ -122,10 +122,11 @@
 }
 
 .response-save-input {
-    width: 8vh;
+    width: 4vw;
     height: 3vh;
     font-size: smaller;
     padding: 0vh 1vh;
+    min-height: 20px;
 }
 
 .response-field_item {
@@ -139,5 +140,11 @@
 
 .response-process-list {
     width: 100%;
-    padding: 0vh 0.5vh;
+    padding: 0vh 2vw;
+}
+
+.response-process-label {
+    font-size: smaller;
+    width: 5%;
+    display: inline-block;
 }

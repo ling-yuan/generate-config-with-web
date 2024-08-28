@@ -6,8 +6,8 @@ function addInputArea(id) {
     switch (id) {
         case 'before_process-list': {
             let area = document.getElementById(id);
-            console.log("add: before_process-list")
-            break;
+            console.log("add: before_process-list");
+            return null;
         }
         case 'fields-list': {
             let area = document.getElementById(id);
@@ -66,8 +66,22 @@ function addInputArea(id) {
 function addAfterProcessList(id) {
     let area = document.getElementById(id);
     console.log("add: " + id)
-    let tmpId = randomId('after_process-');
-    let temp = `后处理列表模板`;
+    let tmpId = randomId('process_item-');
+    let temp = `<div id="${tmpId}">
+                    <label class="response-process-label">方法: </label>
+                    <select class="input-data response-select" id="after_process_method">
+                                <option value="format_value">格式化字符串</option>
+                                <option value="str_remove_by_regex">正则表达式移除字符串</option>
+                                <option value="str_replace_by_regex">正则表达式替换字符串</option>
+                                <option value="str_extract_by_regex">正则表达式提取字符串</option>
+                                <option value="html_removetag_by_xpath">xpath移除html标签</option>
+                                <option value="html_removestyle_by_xpath">xpath移除html标签的style属性</option>
+                                <option value="html_replacetag_by_xpath">xpath替换html标签</option>
+                    </select> &emsp;
+                    <label class="response-process-label">参数: </label>
+                    <input class="input-data response-field-input" id="after_process_params" /> &emsp;
+                    <img class="response-icon-del" src="./static/pic/del.png" onclick="deleteElement('${tmpId}')">
+                </div>`;
     area.insertAdjacentHTML('beforeend', temp);
 }
 
