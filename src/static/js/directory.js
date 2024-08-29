@@ -2,6 +2,10 @@
 let nowstep = 'directory0';
 let datadict = {};
 
+/**
+ * 初始化配置
+ * @param {string} key 
+ */
 function initDict(key) {
     datadict[key] = {
         "request": {
@@ -17,9 +21,28 @@ function initDict(key) {
         },
     }
 }
-initDict('directory0');
 
+/**
+ * 设置阶段样式
+ * @param {string} id
+ */
+function setDirectoryStyle(id1, id2) {
+    let el1 = document.getElementById(id1);
+    let el2 = document.getElementById(id2);
+    if (el1) {
+        el1.style.border = 'none';
+    }
+    if (el2) {
+        el2.style.border = '1px solid #ccc';
+    }
+}
+
+/**
+ * 切换阶段
+ * @param {string} id 
+ */
 function qiehuan(id) {
+    setDirectoryStyle(nowstep, id);
     console.log(id);
     let requestData = getRequestParams();
     let responseData = getResponseParams();
@@ -36,6 +59,10 @@ function qiehuan(id) {
 }
 
 let number = 0;
+/**
+ * 生成新阶段
+ * @param {string} id 
+ */
 function addList(id) {
     // 生成阶段
     let area = document.getElementById(id);
@@ -54,11 +81,19 @@ function addList(id) {
     initDict(tmpId);
 }
 
+/**
+ * 删除阶段
+ * @param {string} id
+ * */
 function deleteDirectoryElement(id) {
     deleteElement(id);
     delete datadict[id];
 }
 
+/**
+ * 刷新当前阶段配置
+ * @param {string} id
+ * */
 function refreshNowstepConfig() {
     let requestData = getRequestParams();
     let responseData = getResponseParams();
@@ -71,6 +106,10 @@ function refreshNowstepConfig() {
     }
 }
 
+/**
+ * 获取所有阶段配置
+ * @param {string} id
+ * */
 function getAllConfig() {
     refreshNowstepConfig();
     let data = [];
@@ -81,3 +120,6 @@ function getAllConfig() {
     }
     return data;
 }
+
+initDict('directory0');
+setDirectoryStyle('directory0', 'directory0');

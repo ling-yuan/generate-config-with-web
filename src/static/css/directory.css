@@ -1,11 +1,15 @@
 .directory-ul {
     list-style-type: none;
-    margin-right: 50%;
+    margin: 1.5vh 2vh;
 }
 
 .directory-ul>li {
+    padding: 1vh 2vh;
+    margin: 0.5vh 0;
     display: flex;
     justify-content: space-between;
+    /* 圆角 */
+    border-radius: 5px;
 }
 
 .directory-ul>li:hover {

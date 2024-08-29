@@ -10,10 +10,12 @@
 
     <body>
         <script src="{{url_for('static', filename='js/tools.js')}}"></script>
-        <script src="{{url_for('static', filename='js/index.js')}}"></script>
         <div class="header">
             <div class="icon">
                 <div class="item"></div>
+            </div>
+            <div class="header-button">
+                <span id="output">导出配置</span>
             </div>
         </div>
         <div class="container">
@@ -28,6 +30,7 @@
                 {{response|safe}}
             </div>
         </div>
+        <script src="{{url_for('static', filename='js/index.js')}}"></script>
     </body>
 
 </html>

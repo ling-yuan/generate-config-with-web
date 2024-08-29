@@ -12,6 +12,8 @@ body {
     height: 5vh;
     /* 内边距1vh */
     padding: 1vh;
+    display: flex;
+    justify-content: space-between;
 }
 
 .icon {
@@ -72,14 +74,41 @@ body {
     width: 15%;
 }
 
-/* .container .request {
-    width: 34%;
-}
-
-.container .response {
-    width: 51%;
-} */
-
 .container .request-response {
     width: 85%;
+}
+
+.header-button {
+    padding: 1vh;
+}
+
+.header-button>span {
+    margin: 0;
+    padding: 0.3vh;
+    height: 3vh;
+    border: none;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 1vh rgba(0, 0, 0, .5);
+    margin-left: 1vh;
+    overflow: hidden;
+    cursor: pointer;
+    /* font-size: small; */
+}
+
+.header-button>span:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.overtext {
+    /* 让弹出来的文字不被选中，影响操作体验 */
+    user-select: none;
+    cursor: default;
+    font-size: 15px;
+    color: blanchedalmond;
+    position: absolute;
+    transition: 1s;
+    border: 1px dashed #c2c2c2;
+    border-radius: 5px;
 }

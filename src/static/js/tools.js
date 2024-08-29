@@ -1,6 +1,6 @@
 /**
  * 格式化JSON
- * @param str
+ * @param {string} str
  * @returns {string}
  * */
 function formatJson(str) {
@@ -9,7 +9,7 @@ function formatJson(str) {
 
 /**
  * 获取元素值
- * @param id
+ * @param {string} id
  * @returns {string}
  * */
 function getValue(id) {
@@ -18,8 +18,8 @@ function getValue(id) {
 
 /**
  * 设置元素值
- * @param id
- * @param value
+ * @param {string} id
+ * @param {string} value
  * @returns {string}
  * */
 function setValue(id, value) {
@@ -28,7 +28,7 @@ function setValue(id, value) {
 
 /**
  * 复制文本到剪贴板
- * @param str
+ * @param {string} str
  * @returns {string}
  * */
 function copyToClipboard(str) {
