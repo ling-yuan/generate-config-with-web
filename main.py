@@ -12,4 +12,5 @@ app.register_blueprint(router, url_prefix="/")
 
 if __name__ == "__main__":
     # debug=True allows for changes to be seen without having to restart the server
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
