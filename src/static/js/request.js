@@ -1,21 +1,22 @@
 const all_keys_str = [
-    "request-type",
-    "request-url",
-    "request-method",
-    "request-iteration_times",
-    "request-proxy",
-    "request-dont_filter"
+    "type",
+    "url",
+    "method",
+    "iteration_times",
+    "proxy",
+    "dont_filter"
 ]
 
 const all_keys_dict = [
-    "request-headers",
-    "request-query_params",
-    "request-json_params",
-    "request-form_params"
+    "headers",
+    "query_params",
+    "json_params",
+    "form_params"
 ]
 
 // 监听输入事件，自动格式化json
-all_keys_dict.forEach(key => {
+all_keys_dict.forEach(k => {
+    let key = "request-" + k;
     document.getElementById(key).addEventListener("input", function () {
         let value = getValue(key);
         if (value) {
@@ -36,15 +37,17 @@ all_keys_dict.forEach(key => {
 function getRequestParams() {
     let flag = true;
     let request = {};
-    all_keys_str.forEach(key => {
+    all_keys_str.forEach(k => {
+        let key = "request-" + k;
         if (getValue(key)) {
-            request[key] = getValue(key);
+            request[k] = getValue(key);
         }
     })
-    all_keys_dict.forEach(key => {
+    all_keys_dict.forEach(k => {
+        let key = "request-" + k;
         if (getValue(key)) {
             try {
-                request[key] = JSON.parse(getValue(key));
+                request[k] = JSON.parse(getValue(key));
             } catch (e) {
                 alert("请检查 " + key + " 的格式是否正确");
                 flag = false;
@@ -81,8 +84,9 @@ function setDefaultRequestParams() {
  * */
 function setRequestParams(dict) {
     setDefaultRequestParams();
-    for (let key in dict) {
-        let value = dict[key];
+    for (let k in dict) {
+        let key = "request-" + k;
+        let value = dict[k];
         // 如果为字符串
         if (typeof value === "string") {
             setValue(key, value);

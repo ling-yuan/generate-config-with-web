@@ -1,6 +1,7 @@
 /**
  * 添加解析前处理
  * @param id
+ * @returns {null | string}
  * */
 function addInputArea(id) {
     switch (id) {
@@ -11,7 +12,7 @@ function addInputArea(id) {
         }
         case 'fields-list': {
             let area = document.getElementById(id);
-            console.log("add: fields_list")
+            console.log("add: fields_list");
             let tmpId = randomId('field-');
             let temp = `<div id="${tmpId}" class="response-field_item">
                             <label class="response-field-label">名称: </label>
@@ -43,7 +44,7 @@ function addInputArea(id) {
                             <div class="response-process-list" id="after_process-${tmpId}"></div>
                         </div>`;
             area.insertAdjacentHTML('beforeend', temp);
-            break;
+            return tmpId;
         }
         case 'save_fields-list': {
             let area = document.getElementById(id);
@@ -54,7 +55,7 @@ function addInputArea(id) {
                             <img class="response-icon-del" src="./static/pic/del.png" onclick="deleteElement('${tmpId}')">
                         </span>`;
             area.insertAdjacentHTML('beforeend', temp);
-            break;
+            return tmpId;
         }
     }
 }
@@ -62,6 +63,7 @@ function addInputArea(id) {
 /**
  * 添加解析后处理列表
  * @param id
+ * @returns {string}
  */
 function addAfterProcessList(id) {
     let area = document.getElementById(id);
@@ -83,6 +85,7 @@ function addAfterProcessList(id) {
                     <img class="response-icon-del" src="./static/pic/del.png" onclick="deleteElement('${tmpId}')">
                 </div>`;
     area.insertAdjacentHTML('beforeend', temp);
+    return tmpId;
 }
 
 /**
@@ -119,22 +122,22 @@ function getResponseFieldsConfig() {
     for (let i = 0; i < area.children.length; i++) {
         let tmpDiv = area.children[i];
         let tmpDict = {};
-        tmpDict['field_name'] = tmpDiv.children[id = 'field_name'].value;
-        tmpDict['field_type'] = tmpDiv.children[id = 'field_type'].value;
-        tmpDict['field_save_length'] = tmpDiv.children[id = 'field_save_length'].value;
-        tmpDict['field_value'] = tmpDiv.children[id = 'field_value'].value;
-        tmpDict['field_default'] = tmpDiv.children[id = 'field_default'].value;
-        tmpDict['field_save_method'] = tmpDiv.children[id = 'field_save_method'].value;
+        tmpDict['name'] = tmpDiv.children[id = 'field_name'].value;
+        tmpDict['type'] = tmpDiv.children[id = 'field_type'].value;
+        tmpDict['save_length'] = tmpDiv.children[id = 'field_save_length'].value;
+        tmpDict['value'] = tmpDiv.children[id = 'field_value'].value;
+        tmpDict['default'] = tmpDiv.children[id = 'field_default'].value;
+        tmpDict['save_method'] = tmpDiv.children[id = 'field_save_method'].value;
         let process_list = tmpDiv.children[tmpDiv.children.length - 1];
         let process_fields = [];
         for (let j = 0; j < process_list.children.length; j++) {
             let tmpProcess = process_list.children[j];
             let tmpProcessDict = {};
-            tmpProcessDict['after_process_method'] = tmpProcess.children[id = 'after_process_method'].value;
-            tmpProcessDict['after_process_params'] = tmpProcess.children[id = 'after_process_params'].value;
+            tmpProcessDict['name'] = tmpProcess.children[id = 'after_process_method'].value;
+            tmpProcessDict['args'] = tmpProcess.children[id = 'after_process_params'].value;
             process_fields.push(tmpProcessDict);
         }
-        tmpDict['process_fields'] = process_fields;
+        tmpDict['after_process'] = process_fields;
         fields.push(tmpDict);
     }
     return fields;
@@ -144,10 +147,58 @@ function getResponseFieldsConfig() {
  * 获取界面响应的配置
  * @returns {{}}
  * */
-function getResponseConfig() {
+function getResponseParams() {
     let responseConfig = {};
-    responseConfig['response-type'] = document.getElementById('response-type').value;
+    responseConfig['type'] = document.getElementById('response-type').value;
     responseConfig['save_fields'] = getSaveFields();
     responseConfig['fields'] = getResponseFieldsConfig();
     return responseConfig;
+}
+
+/**
+ * 设置默认界面内容
+ * */
+function setDefaultResponseParams() {
+    document.getElementById('response-type').value = "html";
+    let area1 = document.getElementById('fields-list');
+    area1.innerHTML = "";
+    let area2 = document.getElementById('save_fields-list');
+    area2.innerHTML = "";
+}
+
+/**
+ * 设置响应界面的配置
+ * @param dict
+ * */
+function setResponseParams(dict) {
+    setDefaultResponseParams();
+    if (dict['type']) {
+        document.getElementById('response-type').value = dict['type'];
+    }
+    if (dict['save_fields']) {
+        for (let i = 0; i < dict['save_fields'].length; i++) {
+            let tmpValue = dict['save_fields'][i];
+            let tmpId = addInputArea("save_fields-list");
+            document.getElementById(tmpId).children[0].value = tmpValue;
+        }
+    }
+    if (dict['fields']) {
+        for (let i = 0; i < dict['fields'].length; i++) {
+            let tmpValue = dict['fields'][i];
+            let tmpId = addInputArea("fields-list");
+            let tmpArea = document.getElementById(tmpId);
+            ['type', 'name', 'save_method', 'save_length', 'default', 'value'].forEach(k => {
+                tmpArea.children[id = 'field_' + k].value = tmpValue[k];
+            })
+            if (tmpValue['after_process']) {
+                for (let j = 0; j < tmpValue['after_process'].length; j++) {
+                    let tmpProcessValue = tmpValue['after_process'][j];
+                    let tmpProcessId = addAfterProcessList("after_process-" + tmpId);
+                    let tmpProcess = document.getElementById(tmpProcessId);
+                    tmpProcess.children[id = 'after_process_method'].value = tmpProcessValue['name'];
+                    tmpProcess.children[id = 'after_process_params'].value = tmpProcessValue['args'];
+                }
+            }
+        }
+    }
 }

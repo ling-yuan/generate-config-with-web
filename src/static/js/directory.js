@@ -5,28 +5,32 @@ let datadict = {};
 function initDict(key) {
     datadict[key] = {
         "request": {
-            "request-type": "api",
-            "request-method": "GET",
-            "request-iteration_times": "1",
-            "request-dont_filter": "True"
+            "type": "api",
+            "method": "GET",
+            "iteration_times": "1",
+            "dont_filter": "True"
         },
-        "response": {},
+        "response": {
+            "fields": [],
+            "save_fields": [],
+            "type": "html"
+        },
     }
 }
 initDict('directory0');
-// 定义点击函数
+
 function qiehuan(id) {
     console.log(id);
-    let requestData = getRequestParams();  //把需要的数据取出来
-    // let responseData = getResponseParams();
-    if (requestData[0] == true) {//加response
+    let requestData = getRequestParams();
+    let responseData = getResponseParams();
+    if (requestData[0] == true) {
         datadict[nowstep] = {
             "request": requestData[1],
-            "response": {},
+            "response": responseData,
         }
         let data = datadict[id];
         setRequestParams(data["request"]);
-        // setResponseParams(data["response"]);
+        setResponseParams(data["response"]);
         nowstep = id;
     }
 }
@@ -42,10 +46,38 @@ function addList(id) {
                     </span>
                     <span class="directory-list-right">
                         <img src="./static/pic/directoryadd.png" onclick="addList('${tmpId}')" title="点击添加" />
-                        <img src="./static/pic/directoryreduce.png" onclick="deleteElement('${tmpId}')" title="点击删除" />
+                        <img src="./static/pic/directoryreduce.png" onclick="deleteDirectoryElement('${tmpId}')" title="点击删除" />
                     </span>
                 </li>`;
     area.insertAdjacentHTML('afterend', temp);
     // 初始化阶段
     initDict(tmpId);
+}
+
+function deleteDirectoryElement(id) {
+    deleteElement(id);
+    delete datadict[id];
+}
+
+function refreshNowstepConfig() {
+    let requestData = getRequestParams();
+    let responseData = getResponseParams();
+    if (requestData[0] == true) {
+        let tmpConfig = {
+            "request": requestData[1],
+            "response": responseData,
+        }
+        datadict[nowstep] = tmpConfig;
+    }
+}
+
+function getAllConfig() {
+    refreshNowstepConfig();
+    let data = [];
+    let area = document.getElementById('directoryList');
+    for (let i = 0; i < area.children.length; i++) {
+        let id = area.children[i].id;
+        data.push(datadict[id]);
+    }
+    return data;
 }
